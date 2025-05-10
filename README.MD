@@ -1,26 +1,44 @@
-The backup script is inteded to perform a compressed backup of your specified folder
+# 🗃️ Backup Script Overview
 
-To start using the script Please edit the following variables
+This backup script is intended to perform a **compressed backup** of your specified folder.
 
-backup_directory="/var/db"    #edit directory  to be backed up  here
-backup_destination="/var/backup" #edit archived backup file destination here
+---
 
-You can also set the amount of backup retention days by setting the following var 
+## ⚙️ Configuration
 
-retain_time=7 #default is 7 days
+Before using the script, please edit the following variables inside the script:
 
+```bash
+backup_directory="/var/db"        # Edit: directory to be backed up
+backup_destination="/var/backup"  # Edit: archived backup destination
+retain_time=7                     # Optional: number of days to keep backups (default is 7)
+```
 
-####################################
+---
 
-The script also provides log rotation to conserve space and allows maximum of 5  backup logs in addition to the current latest log
-Log location can be also edited and assigned a new location by updating the following lines: 
+## 📜 Log Rotation
 
+The script also implements **log rotation** to conserve space.  
+It keeps a maximum of **5 rotated logs**, in addition to the latest log.
+
+You can change the **log location** by editing:
+
+```bash
 mkdir -p /var/log/backup
 log_file="/var/log/backup/backup.log"
+```
 
+---
 
-+++++++++++++++++++++++++
+## ▶️ How to Run
 
-How to Run the file? 
-Make sure the file is excutable by running: chmod u+x ./backup.sh
-or run it from the termainal using: bash ./backup.sh
+1. **Make the script executable**:
+   ```bash
+   chmod u+x ./backup.sh
+   ```
+
+2. **Run it manually**:
+   ```bash
+   bash ./backup.sh
+   ```
+
